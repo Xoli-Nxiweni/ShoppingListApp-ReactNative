@@ -81,6 +81,8 @@
 // export default shoppingSlice.reducer;
 
 // src/redux/shoppingListSlice.js
+
+
 import { createSlice } from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -115,24 +117,33 @@ const shoppingListSlice = createSlice({
       const newItem = {
         ...action.payload,
         id: Date.now(), 
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        fulfilled: false, // New property
       };
       state.items.push(newItem);
       saveItemsToStorage(state.items);
     },
     updateItem: (state, action) => {
-      const index = state.items.findIndex(item => item.id === action.payload.id);
-      if (index !== -1) {
-        state.items[index] = { ...state.items[index], ...action.payload.updates };
-        saveItemsToStorage(state.items);
-      }
-    },
+        const index = state.items.findIndex((item) => item.id === action.payload.id);
+        if (index !== -1) {
+          state.items[index] = action.payload;
+          saveItemsToStorage(state.items); // Save updated state to AsyncStorage
+        }
+      },
+            
     deleteItem: (state, action) => {
       state.items = state.items.filter(item => item.id !== action.payload);
       saveItemsToStorage(state.items);
-    }
+    },
+    toggleFulfilled: (state, action) => {
+        const index = state.items.findIndex((item) => item.id === action.payload);
+        if (index !== -1) {
+          state.items[index].fulfilled = !state.items[index].fulfilled;
+          saveItemsToStorage(state.items);
+        }
+      },
   }
 });
 
-export const { setItems, addItem, updateItem, deleteItem } = shoppingListSlice.actions;
+export const { setItems, addItem, updateItem, deleteItem, toggleFulfilled  } = shoppingListSlice.actions;
 export default shoppingListSlice.reducer;

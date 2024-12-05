@@ -109,7 +109,7 @@ export default function HomeScreen({ navigation }) {
           </View>
 
           {/* CTA Button */}
-          <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
+          <Animated.View>
             <TouchableOpacity
               style={styles.ctaButton}
               onPress={handleStartShopping}
