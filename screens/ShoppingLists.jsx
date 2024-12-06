@@ -450,7 +450,7 @@ export default function ShoppingLists({ navigation }) {
         onPress={() => navigation.navigate('AddItemModal')}
       >
         <LinearGradient
-          colors={['#00b4d8', '#0077b6']}
+          colors={['grey', 'lightgrey']}
           style={styles.gradientButton}
         >
           <Text style={styles.addButtonText}>+ Add Item</Text>

@@ -174,7 +174,7 @@ export default function AddItemModal({ navigation }) {
 
   const handleAddItem = () => {
     if (!name.trim()) {
-      Alert.alert('Validation Error', 'Item name is required.');
+      Alert.alert('Validation Error', 'Shopping list title is required.');
       return;
     }
 
@@ -207,12 +207,11 @@ export default function AddItemModal({ navigation }) {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
         <View style={styles.inner}>
-          <Text style={styles.title}>Add New Item</Text>
 
           {/* Item Name Input */}
           <TextInput
             style={styles.input}
-            placeholder="Item Name *"
+            placeholder="Shopping List *"
             placeholderTextColor="#adb5bd"
             value={name}
             onChangeText={setName}
@@ -234,7 +233,7 @@ export default function AddItemModal({ navigation }) {
           {/* Notes Input */}
           <TextInput
             style={[styles.input, styles.notesInput]}
-            placeholder="Additional Notes (Optional)"
+            placeholder="Add items in your list (Optional)"
             placeholderTextColor="#adb5bd"
             value={notes}
             onChangeText={(text) => setNotes(text.slice(0, 200))} // Limit notes to 200 characters
@@ -251,7 +250,7 @@ export default function AddItemModal({ navigation }) {
             accessibilityLabel="Add item to shopping list"
           >
             <LinearGradient
-              colors={['#00b4d8', '#0077b6']}
+              colors={['grey', 'lightgrey']}
               style={styles.gradientButton}
             >
               <Text style={styles.addButtonText}>Add to List</Text>

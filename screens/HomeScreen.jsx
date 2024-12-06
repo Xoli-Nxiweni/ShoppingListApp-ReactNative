@@ -116,7 +116,7 @@ export default function HomeScreen({ navigation }) {
               activeOpacity={0.8}
             >
               <LinearGradient
-                colors={['#00b4d8', '#0077b6']}
+                colors={['grey', 'lightgrey']}
                 style={styles.gradientButton}
               >
                 <Text style={styles.ctaButtonText}>View Shopping List</Text>
@@ -163,13 +163,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#00b4d8',
+    color: '#dfdfdf',
     textAlign: 'center',
     marginTop: 10,
   },
   subtitle: {
     fontSize: 16,
-    color: '#adb5bd',
+    color: '#dfdfdf',
     textAlign: 'center',
     marginTop: 5,
   },
@@ -186,7 +186,6 @@ const styles = StyleSheet.create({
     width: width * 0.8,
     borderRadius: 10,
     elevation: 8,
-    shadowColor: '#00b4d8',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 6,

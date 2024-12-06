@@ -10,10 +10,10 @@ export default function SplashScreen() {
     >
       <View style={styles.logoContainer}>
         <Text style={styles.emoji}>🛒</Text>
-        <Text style={styles.title}>Shopping List App</Text>
+        <Text style={styles.title}>Keep track of your shopping list</Text>
       </View>
-      <Text style={styles.subtitle}>Loading, please wait...</Text>
-      <ActivityIndicator size="large" color="#00b4d8" style={styles.loader} />
+      {/* <Text style={styles.subtitle}>Loading, please wait...</Text> */}
+      {/* <ActivityIndicator size="large" color="#00b4d8" style={styles.loader} /> */}
     </LinearGradient>
   );
 }
